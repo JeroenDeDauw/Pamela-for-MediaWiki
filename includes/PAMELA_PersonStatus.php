@@ -54,8 +54,6 @@ class PAMELAPersonStatus extends ParserHook {
 	protected function getParameterInfo( $type ) {
 		$params = array();
 		
-		
-		
 		return $params;
 	}
 	
@@ -82,8 +80,18 @@ class PAMELAPersonStatus extends ParserHook {
 	 * @return string
 	 */
 	public function render( array $parameters ) {
+		global $egPamAPIURL;
 		
-		return '';		
+		$this->parser->getOutput()->addModules( 'ext.pam.personwidget' );
+		
+		return Html::element(
+			'div',
+			array(
+				'class' => 'personstatus',
+				'apiurl' => $egPamAPIURL
+			),
+			wfMsgForContent( 'pamela-loading' )
+		);		
 	}
 	
 	/**

@@ -81,7 +81,7 @@ $wgResourceModules['ext.pam.personwidget'] = $moduleTemplate + array(
 
 unset( $moduleTemplate );
 
-$incDir = dirname( __FILE__ ) . '/includes';
+$incDir = dirname( __FILE__ ) . '/includes/';
 
 $wgAutoloadClasses['PAMELAListPeople'] 				= $incDir . 'PAMELA_ListPeople.php';
 $wgAutoloadClasses['PAMELAPersonStatus'] 			= $incDir . 'PAMELA_PersonStatus.php';

@@ -54,8 +54,6 @@ class PAMELAListPeople extends ParserHook {
 	protected function getParameterInfo( $type ) {
 		$params = array();
 		
-		
-		
 		return $params;
 	}
 	
@@ -82,8 +80,18 @@ class PAMELAListPeople extends ParserHook {
 	 * @return string
 	 */
 	public function render( array $parameters ) {
+		global $egPamAPIURL;
 		
-		return '';		
+		$this->parser->getOutput()->addModules( 'ext.pam.listwidget' );
+		
+		return Html::element(
+			'div',
+			array(
+				'class' => 'peoplelist',
+				'apiurl' => $egPamAPIURL
+			),
+			wfMsgForContent( 'pamela-loading' )
+		);		
 	}
 	
 	/**

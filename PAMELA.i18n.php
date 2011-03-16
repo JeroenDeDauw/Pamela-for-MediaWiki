@@ -17,4 +17,6 @@ $messages = array();
  */
 $messages['en'] = array(
 	'pamela-desc' => '[http://hackerspaces.be/Pamela PAMELA] client for MediaWiki.',
+
+	'pamela-loading' => 'Loading PAMELA',
 );
