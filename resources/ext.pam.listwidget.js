@@ -24,19 +24,26 @@ jQuery(document).ready(function() {
 		this.api.getAll(
 			{},
 			function( entities ) {
-				showList( entities );
+				updateInterface( entities );
 			}
 		);
 	}
 	
-	function showList( entities ) {
+	function updateInterface( entities ) {
 		self.text( entities.people.join( ',' )/* mediaWiki.msg( '', entities.people, entities.devices, entities.macs )*/ );
+		var isOpen = entities.people.length > 0 || entities.macs.length > 0;
+		openDiv.css( 'display', isOpen ? 'block' : 'none' );
 	}
 	
 	function doRepeatingUpdates() {
 		self.initInterfaceUpdate();
 		setTimeout( doRepeatingUpdates, parseInt( self.attr( 'interval' ) ) );
 	}
+	
+	var openDiv = $( '<div />' ).css( 'display', 'none' ).append(
+		$( '<span />' ).attr( 'class', 'openbanner' ).text( mediaWiki.msg( 'pamela-list-open' ) )
+	);
+	this.append( openDiv );
 	
 	doRepeatingUpdates();
 	

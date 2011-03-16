@@ -22,7 +22,8 @@ $messages['en'] = array(
 
 	// List widget
 	'pamela-list-message' => 'There {{PLURAL:$1|is $1 person|are $1 people}} and $2 {{PLURAL:$2|machine|machines}} active in the space: $3',
-	
+	'pamela-list-open' => 'Open space is open!',	
+
 	// Person widget
 	'' => '',
 );

@@ -71,6 +71,7 @@ $wgResourceModules['ext.pam.listwidget'] = $moduleTemplate + array(
 	'dependencies' => array( 'ext.pam.common' ),
 	'messages' => array(
 		'pamela-list-message',
+		'pamela-list-open',
 	)
 );
 

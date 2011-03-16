@@ -66,7 +66,7 @@ window.pamela = new ( function( $ ) {
 		
 		function requestData( groups, callback ) {
 			$.getJSON(
-				self.options.url,
+				self.options.url + '?callback=?',
 				{ // TODO
 					//'format': 'json',
 					//'groups': groups.join( '|' )
