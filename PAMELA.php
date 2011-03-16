@@ -30,6 +30,16 @@ if ( version_compare( $wgVersion, '1.17', '<' ) ) {
 	die( '<b>Error:</b> PAMELA requires MediaWiki 1.17 or above.' );
 }
 
+// Include the Validator extension if that hasn't been done yet, since it's required for PAMELA to work.
+if ( !defined( 'Validator_VERSION' ) ) {
+	@include_once( dirname( __FILE__ ) . '/../Validator/Validator.php' );
+}
+
+// Only initialize the extension when all dependencies are present.
+if ( ! defined( 'Validator_VERSION' ) ) {
+	die( '<b>Error:</b> You need to have <a href="http://www.mediawiki.org/wiki/Extension:Validator">Validator</a> installed in order to use <a href="http://www.mediawiki.org/wiki/Extension:PAMELA">PAMELA</a>.<br />' );
+}
+
 define( 'PAMELA_VERSION', '0.1 alpha' );
 
 $wgExtensionCredits['other'][] = array(
