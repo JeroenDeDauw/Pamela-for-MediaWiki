@@ -14,7 +14,20 @@ jQuery(document).ready(function() {
 
 (function( $ ){ $.fn.peoplelist = function() {
 	
+	this.api = new pamela.API( {
+		'url': this.attr( 'apiurl' )
+	} );
 	
+	this.api.getPeople(
+		{},
+		function( people ) {
+			showPeopleList( people );
+		}
+	);
+	
+	function showPeopleList() {
+		
+	}
 	
 	return this;
 	
