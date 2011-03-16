@@ -81,4 +81,18 @@ $wgResourceModules['ext.pam.personwidget'] = $moduleTemplate + array(
 
 unset( $moduleTemplate );
 
+$incDir = dirname( __FILE__ ) . '/includes';
+
+$wgAutoloadClasses['PAMELAListPeople'] 				= $incDir . 'PAMELA_ListPeople.php';
+$wgAutoloadClasses['PAMELAPersonStatus'] 			= $incDir . 'PAMELA_PersonStatus.php';
+
+unset( $incDir );
+
+# Required for #listpeople.
+$wgHooks['ParserFirstCallInit'][] = 'PAMELAListPeople::staticInit';
+$wgHooks['LanguageGetMagic'][] = 'PAMELAListPeople::staticMagic';
+# Required for #personstatus.
+$wgHooks['ParserFirstCallInit'][] = 'PAMELAPersonStatus::staticInit';
+$wgHooks['LanguageGetMagic'][] = 'PAMELAPersonStatus::staticMagic';	
+
 require_once 'PAMELA.settings.php';

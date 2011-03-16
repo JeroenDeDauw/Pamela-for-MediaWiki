@@ -8,6 +8,8 @@
  * Changing one of these settings can be done by copieng or cutting it,
  * and placing it in LocalSettings.php, AFTER the inclusion of PAMELA.
  *
+ * @since 0.1
+ *
  * @file PAMELA.settings.php
  * @ingroup PAMELA
  *
