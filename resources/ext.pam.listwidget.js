@@ -31,14 +31,12 @@ jQuery(document).ready(function() {
 	
 	function updateInterface( entities ) {
 		self.text( entities.people.join( ',' )/* mediaWiki.msg( '', entities.people, entities.devices, entities.macs )*/ );
-		var isOpen = entities.people.length > 0 || entities.macs.length > 0;
-		openDiv.css( 'display', isOpen ? 'block' : 'none' );
 	}
 	
 	function doRepeatingUpdates() {
 		self.initInterfaceUpdate();
 		setTimeout( doRepeatingUpdates, parseInt( self.attr( 'interval' ) ) );
-	}
+	}		
 	
 	doRepeatingUpdates();
 	

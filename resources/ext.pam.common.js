@@ -60,6 +60,10 @@ window.pamela = new ( function( $ ) {
 			}
 		};
 		
+		this.isOpen = function( args ) {
+			return true; // TODO
+		}
+		
 		function requestData( groups, callback ) {
 			$.getJSON(
 				self.options.url + '?callback=?',
@@ -98,7 +102,7 @@ window.pamela = new ( function( $ ) {
 			// TODO
 		}
 		
-	};	
+	};
 	
 } )( jQuery );
 
