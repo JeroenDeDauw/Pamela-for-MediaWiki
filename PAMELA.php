@@ -95,4 +95,6 @@ $wgHooks['LanguageGetMagic'][] = 'PAMELAListPeople::staticMagic';
 $wgHooks['ParserFirstCallInit'][] = 'PAMELAPersonStatus::staticInit';
 $wgHooks['LanguageGetMagic'][] = 'PAMELAPersonStatus::staticMagic';	
 
+$wgExtensionMessagesFiles['PAMELA'] = dirname( __FILE__ ) . '/PAMELA.i18n.php';
+
 require_once 'PAMELA.settings.php';
