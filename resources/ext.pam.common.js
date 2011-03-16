@@ -8,16 +8,23 @@
 
 window.pamela = new ( function( $ ) {
 	
+	this.msg = function(  ) {
+		
+	}
+	
 	this.API = function( options ) {
 		
 		var self = this;
 		
 		this.options = options;
-		this.data = {
+		this.data = { // TODO
 			'people': [ 'foo', 'bar', 'baz' ],
 			'devices': [ 'device 1', 'device 2' ],
-			'enities': [ 'unknown thing' ]
+			'macs': [ '0:0:0:0:0:0' ]
 		};
+		
+		this.groups = [];
+		for ( i in this.data ) this.groups.push( i );
 		
 		this.hasData = function( group, args ) {
 			// TODO: look if already in this.data
@@ -29,33 +36,40 @@ window.pamela = new ( function( $ ) {
 			callback( this.data );
 		}
 		
-		this.returnPeople = function( callback ) {
-			callback( this.data.people );
-		};
-		
-		this.getPeople = function( args, callback ) {
-			if ( this.hasData( 'people', args ) ) {
-				this.returnPeople( callback );
+		this.returnGroups = function( groups, callback ) {
+			if ( groups == this.groups ) {
+				callback( this.data );
 			}
 			else {
-				requestData( 'people', callback );
-			}
-		};		
-		
-		this.getPeople = function( args, callback ) {
-			if ( this.hasData( 'people', args ) ) {
-				this.returnPeople( callback );
-			}
-			else {
-				requestData( 'people', callback );
+				var result = {};
+				
+				for ( i in groups ) {
+					result[groups[i]] = this.data[groups[i]]; 
+				}
+				
+				callback( result );
 			}
 		};
 		
-		function requestData( group, callback ) {
+		this.getAll = function( args, callback ) {
+			this.getGroups( this.groups, args, callback );
+		};
+		
+		this.getGroups = function( groups, args, callback ) {
+			if ( this.hasData( groups, args ) ) {
+				this.returnGroups( groups, callback );
+			}
+			else {
+				requestData( groups, callback );
+			}
+		};
+		
+		function requestData( groups, callback ) {
 			$.getJSON(
 				self.options.url,
-				{
+				{ // TODO
 					//'format': 'json',
+					//'groups': groups.join( '|' )
 				},
 				function( data ) {
 					if ( data ) {
@@ -74,8 +88,8 @@ window.pamela = new ( function( $ ) {
 							
 							type.unshift( data[i] );
 						}
-						self.data.people = data;
-						self.returnPeople( callback );
+						
+						self.returnGroups( groups, callback );
 					}
 					else {
 						handleError( '' ); // TODO

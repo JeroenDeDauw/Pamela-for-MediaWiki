@@ -21,16 +21,16 @@ jQuery(document).ready(function() {
 	} );
 	
 	this.initInterfaceUpdate = function() {
-		this.api.getPeople(
+		this.api.getAll(
 			{},
-			function( people ) {
-				showList( people );
+			function( entities ) {
+				showList( entities );
 			}
-		);		
+		);
 	}
 	
-	function showList( people ) {
-		self.text( people.join( ', ' ) );
+	function showList( entities ) {
+		self.text( entities.people.join( ',' )/* mediaWiki.msg( '', entities.people, entities.devices, entities.macs )*/ );
 	}
 	
 	function doRepeatingUpdates() {
