@@ -14,20 +14,31 @@ jQuery(document).ready(function() {
 
 (function( $ ){ $.fn.peoplelist = function() {
 	
+	var self = this;
+	
 	this.api = new pamela.API( {
 		'url': this.attr( 'apiurl' )
 	} );
 	
-	this.api.getPeople(
-		{},
-		function( people ) {
-			showPeopleList( people );
-		}
-	);
-	
-	function showPeopleList() {
-		
+	this.initInterfaceUpdate = function() {
+		this.api.getPeople(
+			{},
+			function( people ) {
+				showPeopleList( people );
+			}
+		);		
 	}
+	
+	function showPeopleList( people ) {
+		self.text( people.join( ', ' ) );
+	}
+	
+	function doRepeatingUpdates() {
+		self.initInterfaceUpdate();
+		setTimeout( doRepeatingUpdates, parseInt( self.attr( 'interval' ) ) );
+	}
+	
+	doRepeatingUpdates();
 	
 	return this;
 	

@@ -21,4 +21,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'Not an entry point.' );
 }
 
+# The location of the PAMELA webservice read API.
 $egPamAPIURL = '';
+
+# The interval between refreshes of data in the widgets, in miliseconds.
+$egPamRefreshInterval = 60000;

@@ -13,17 +13,17 @@ window.pamela = new ( function( $ ) {
 		var self = this;
 		
 		this.options = options;
-		this.data = {};
+		this.data = { 'people': [ 'foo', 'bar', 'baz' ] };
 		
 		this.hasData = function( group, args ) {
 			// TODO: look if already in this.data
 			// and if still valid (using optional ttl in args)
-			return false;
-		};	
+			return true;
+		};
 		
 		this.returnPeople = function( callback ) {
-			callback.call( [ this.data.people ] );
-		};	
+			callback( this.data.people );
+		};
 		
 		this.getPeople = function( args, callback ) {
 			if ( this.hasData( 'people', args ) ) {
@@ -38,7 +38,7 @@ window.pamela = new ( function( $ ) {
 			$.getJSON(
 				self.options.url,
 				{
-					'format': 'json',
+					//'format': 'json',
 				},
 				function( data ) {
 					if ( data ) {

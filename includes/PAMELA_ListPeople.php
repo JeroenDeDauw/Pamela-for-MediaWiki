@@ -52,7 +52,13 @@ class PAMELAListPeople extends ParserHook {
 	 * @return array
 	 */
 	protected function getParameterInfo( $type ) {
+		global $egPamRefreshInterval;
+		
 		$params = array();
+		
+		$params['interval'] = new Parameter( 'interval', Parameter::TYPE_INTEGER );
+		$params['interval']->setDefault( $egPamRefreshInterval );
+		$params['interval']->addCriteria( new CriterionInRange( 1, 9000 ) ); // Muhahaha
 		
 		return $params;
 	}
@@ -88,7 +94,8 @@ class PAMELAListPeople extends ParserHook {
 			'div',
 			array(
 				'class' => 'peoplelist',
-				'apiurl' => $egPamAPIURL
+				'apiurl' => $egPamAPIURL,
+				'interval' => $parameters['interval']
 			),
 			wfMsgForContent( 'pamela-loading' )
 		);		
@@ -101,6 +108,21 @@ class PAMELAListPeople extends ParserHook {
 	 */
 	public function getDescription() {
 		return wfMsg( '' );
+	}
+	
+	/**
+	 * Returns the parser function otpions.
+	 * @see ParserHook::getFunctionOptions
+	 * 
+	 * @since 0.1
+	 * 
+	 * @return array
+	 */
+	protected function getFunctionOptions() {
+		return array(
+			'noparse' => true,
+			'isHTML' => true
+		);
 	}	
 	
 }
