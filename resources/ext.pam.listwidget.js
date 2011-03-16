@@ -24,12 +24,12 @@ jQuery(document).ready(function() {
 		this.api.getPeople(
 			{},
 			function( people ) {
-				showPeopleList( people );
+				showList( people );
 			}
 		);		
 	}
 	
-	function showPeopleList( people ) {
+	function showList( people ) {
 		self.text( people.join( ', ' ) );
 	}
 	
