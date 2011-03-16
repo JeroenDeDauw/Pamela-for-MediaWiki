@@ -40,11 +40,6 @@ jQuery(document).ready(function() {
 		setTimeout( doRepeatingUpdates, parseInt( self.attr( 'interval' ) ) );
 	}
 	
-	var openDiv = $( '<div />' ).css( 'display', 'none' ).append(
-		$( '<span />' ).attr( 'class', 'openbanner' ).text( mediaWiki.msg( 'pamela-list-open' ) )
-	);
-	this.append( openDiv );
-	
 	doRepeatingUpdates();
 	
 	return this;

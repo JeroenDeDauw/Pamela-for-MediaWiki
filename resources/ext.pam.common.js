@@ -8,10 +8,6 @@
 
 window.pamela = new ( function( $ ) {
 	
-	this.msg = function(  ) {
-		
-	}
-	
 	this.API = function( options ) {
 		
 		var self = this;

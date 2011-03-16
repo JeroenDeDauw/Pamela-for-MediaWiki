@@ -71,7 +71,6 @@ $wgResourceModules['ext.pam.listwidget'] = $moduleTemplate + array(
 	'dependencies' => array( 'ext.pam.common' ),
 	'messages' => array(
 		'pamela-list-message',
-		'pamela-list-open',
 	)
 );
 
@@ -81,6 +80,15 @@ $wgResourceModules['ext.pam.personwidget'] = $moduleTemplate + array(
 	'dependencies' => array( 'ext.pam.common' ),
 	'messages' => array(
 
+	)
+);
+
+$wgResourceModules['ext.pam.openwidget'] = $moduleTemplate + array(
+	'scripts' => 'ext.pam.openwidget.js',
+	'styles' => 'ext.pam.openwidget.css',
+	'dependencies' => array( 'ext.pam.common' ),
+	'messages' => array(
+		'pamela-list-open',
 	)
 );
 
