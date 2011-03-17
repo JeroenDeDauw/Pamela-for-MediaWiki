@@ -60,8 +60,8 @@ window.pamela = new ( function( $ ) {
 			}
 		};
 		
-		this.isOpen = function( args ) {
-			return true; // TODO
+		this.isOpen = function( args, callback ) {
+			callback( true ); // TODO
 		}
 		
 		function requestData( groups, callback ) {

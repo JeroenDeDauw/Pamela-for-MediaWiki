@@ -95,7 +95,7 @@ class PAMELAListPeople extends ParserHook {
 			array(
 				'class' => 'peoplelist',
 				'apiurl' => $egPamAPIURL,
-				'interval' => $parameters['interval']
+				'interval' => $parameters['interval'] * 1000
 			),
 			wfMsgForContent( 'pamela-loading' )
 		);		

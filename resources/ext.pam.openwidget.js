@@ -14,22 +14,30 @@ jQuery(document).ready(function() {
 
 (function( $ ){ $.fn.openwidget = function() {
 	
-	this.css( 'display', 'none' ).append(
-		$( '<span />' ).attr( 'class', 'openbanner' ).text( mediaWiki.msg( 'pamela-list-open' ) )
-	);
+	var self = this;
+	var loaded = false;
+	var bannerSpan = null;
+	
+	this.api = new pamela.API( {
+		'url': this.attr( 'apiurl' )
+	} );	
 	
 	this.initInterfaceUpdate = function() {
-		this.api.getAll(
+		this.api.isOpen(
 			{},
-			function( entities ) {
-				updateInterface( entities );
+			function( isOpen ) {
+				updateInterface( isOpen );
 			}
 		);
-	}	
+	}
 	
-	function updateInterface( entities ) {
-		var isOpen = entities.people.length > 0 || entities.macs.length > 0;
-		openDiv.css( 'display', isOpen ? 'block' : 'none' );			
+	function updateInterface( isOpen ) {
+		if ( !loaded ) {
+			loaded = true;
+			bannerSpan = $( '<span />' ).attr( 'class', 'openbanner' ).text( mediaWiki.msg( 'pamela-list-open' ) );
+			self.html( bannerSpan );
+		}
+		bannerSpan.css( 'display', isOpen ? 'block' : 'none' );
 	}
 	
 	function doRepeatingUpdates() {

@@ -88,14 +88,14 @@ class PAMELAOpenWidget extends ParserHook {
 	public function render( array $parameters ) {
 		global $egPamAPIURL;
 		
-		$this->parser->getOutput()->addModules( 'ext.pam.listwidget' );
+		$this->parser->getOutput()->addModules( 'ext.pam.openwidget' );
 		
 		return Html::element(
 			'div',
 			array(
-				'class' => 'peoplelist',
+				'class' => 'openwidget',
 				'apiurl' => $egPamAPIURL,
-				'interval' => $parameters['interval']
+				'interval' => $parameters['interval'] * 1000
 			),
 			wfMsgForContent( 'pamela-loading' )
 		);		

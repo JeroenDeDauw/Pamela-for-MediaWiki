@@ -95,7 +95,7 @@ class PAMELAPersonStatus extends ParserHook {
 			array(
 				'class' => 'personstatus',
 				'apiurl' => $egPamAPIURL,
-				'interval' => $parameters['interval']
+				'interval' => $parameters['interval'] * 1000
 			),
 			wfMsgForContent( 'pamela-loading' )
 		);		

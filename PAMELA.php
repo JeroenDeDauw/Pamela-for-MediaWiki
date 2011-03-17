@@ -98,6 +98,7 @@ $incDir = dirname( __FILE__ ) . '/includes/';
 
 $wgAutoloadClasses['PAMELAListPeople'] 				= $incDir . 'PAMELA_ListPeople.php';
 $wgAutoloadClasses['PAMELAPersonStatus'] 			= $incDir . 'PAMELA_PersonStatus.php';
+$wgAutoloadClasses['PAMELAOpenWidget'] 				= $incDir . 'PAMELA_OpenWidget.php';
 
 unset( $incDir );
 

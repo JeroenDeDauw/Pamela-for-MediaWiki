@@ -14,7 +14,11 @@ jQuery(document).ready(function() {
 
 (function( $ ){ $.fn.personwidget = function() {
 	
-
+	var self = this;
+	
+	this.api = new pamela.API( {
+		'url': this.attr( 'apiurl' )
+	} );
 	
 	return this
 	
