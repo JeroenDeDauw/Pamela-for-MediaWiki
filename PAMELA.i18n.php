@@ -21,9 +21,13 @@ $messages['en'] = array(
 	'pamela-loading' => 'Loading PAMELA',
 
 	// List widget
+	'pamela-listwidget-desc' => 'Displays a list of occupants',
 	'pamela-list-message' => 'There {{PLURAL:$1|is $1 person|are $1 people}} and $2 {{PLURAL:$2|machine|machines}} active in the space: $3',
 	'pamela-list-open' => 'Open space is open!',	
 
 	// Person widget
-	'' => '',
+	'pamela-personwidget-desc' => 'Displays the status of a single person',
+
+	// Open widget
+	'pamela-openwidget-desc' => 'Displays a banner indicating the precence of at least one occupant',
 );

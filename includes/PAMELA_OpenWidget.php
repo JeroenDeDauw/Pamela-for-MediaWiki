@@ -1,17 +1,17 @@
 <?php
 
 /**
- * Class for the 'listpeople' parser hook.
+ * Class for the 'openwidget' parser hook.
  * 
  * @since 0.1
  * 
- * @file PAMELA_ListPeople.php
+ * @file PAMELA_OpenWidget.php
  * @ingroup PAMELA
  * 
  * @licence GNU GPL v3
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class PAMELAListPeople extends ParserHook {
+class PAMELAOpenWidget extends ParserHook {
 	
 	/**
 	 * No LSB in pre-5.3 PHP *sigh*.
@@ -40,7 +40,7 @@ class PAMELAListPeople extends ParserHook {
 	 * @return string
 	 */
 	protected function getName() {
-		return 'listpeople';
+		return 'openwidget';
 	}
 	
 	/**
@@ -107,7 +107,7 @@ class PAMELAListPeople extends ParserHook {
 	 * @since 0.1
 	 */
 	public function getDescription() {
-		return wfMsg( 'pamela-listwidget-desc' );
+		return wfMsg( 'pamela-openwidget-desc' );
 	}
 	
 	/**
