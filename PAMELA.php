@@ -79,7 +79,7 @@ $wgResourceModules['ext.pam.personwidget'] = $moduleTemplate + array(
 	'styles' => 'ext.pam.personwidget.css',
 	'dependencies' => array( 'ext.pam.common' ),
 	'messages' => array(
-
+		'pamela-personwidget-online'
 	)
 );
 

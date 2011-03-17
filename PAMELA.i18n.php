@@ -27,6 +27,7 @@ $messages['en'] = array(
 
 	// Person widget
 	'pamela-personwidget-desc' => 'Displays the status of a single person',
+	'pamela-personwidget-online' => 'This person is currently in the space!',
 
 	// Open widget
 	'pamela-openwidget-desc' => 'Displays a banner indicating the precence of at least one occupant',

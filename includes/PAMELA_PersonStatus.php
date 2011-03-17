@@ -56,6 +56,8 @@ class PAMELAPersonStatus extends ParserHook {
 		
 		$params = array();
 		
+		$params['person'] = new Parameter( 'person' );
+		
 		$params['interval'] = new Parameter( 'interval', Parameter::TYPE_INTEGER );
 		$params['interval']->setDefault( $egPamRefreshInterval );
 		$params['interval']->addCriteria( new CriterionInRange( 1, 9000 ) ); // Muhahaha
@@ -72,7 +74,7 @@ class PAMELAPersonStatus extends ParserHook {
 	 * @return array
 	 */
 	protected function getDefaultParameters( $type ) {
-		return array();
+		return array( 'person' );
 	}
 	
 	/**
@@ -93,9 +95,10 @@ class PAMELAPersonStatus extends ParserHook {
 		return Html::element(
 			'div',
 			array(
-				'class' => 'personstatus',
+				'class' => 'personwidget',
 				'apiurl' => $egPamAPIURL,
-				'interval' => $parameters['interval'] * 1000
+				'interval' => $parameters['interval'] * 1000,
+				'person' => $parameters['person']
 			),
 			wfMsgForContent( 'pamela-loading' )
 		);		

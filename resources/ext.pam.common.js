@@ -14,9 +14,9 @@ window.pamela = new ( function( $ ) {
 		
 		this.options = options;
 		this.data = { // TODO
-			'people': [ 'foo', 'bar', 'baz' ],
-			'devices': [ 'device 1', 'device 2' ],
-			'macs': [ '0:0:0:0:0:0' ]
+			'people': { 'foo': { isPresent: true }, 'bar': { isPresent: true }, 'baz': { isPresent: true } },
+			'devices': { 'device 1': { isPresent: true }, 'device 2': { isPresent: true } },
+			'macs': { '0:0:0:0:0:0': { isPresent: true } }
 		};
 		
 		this.groups = [];
@@ -62,6 +62,18 @@ window.pamela = new ( function( $ ) {
 		
 		this.isOpen = function( args, callback ) {
 			callback( true ); // TODO
+		}
+		
+		this.getEntityData = function( args, callback ) {
+			var groups = args.groups.split( '|' );
+			for ( i in groups ) {
+				if ( this.data[groups[i]][args.name] ) {
+					callback( this.data[groups[i]][args.name] );
+					return;
+				}
+			}
+			
+			callback( false );
 		}
 		
 		function requestData( groups, callback ) {
