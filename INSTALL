@@ -14,8 +14,8 @@ require_once( "$IP/extensions/PAMELA/PAMELA.php" );
 
 == Configuration ==
 
-Configuration of push is done by adding simple PHP statements to your [[Manual:LocalSettings.php|LocalSettings.php]]
-file. These statements need to be placed AFTER the inclusion of Push. The options are listed below and their default
+Configuration of PAMELA is done by adding simple PHP statements to your [[Manual:LocalSettings.php|LocalSettings.php]]
+file. These statements need to be placed AFTER the inclusion of PAMELA. The options are listed below and their default
 is set in the [http://svn.wikimedia.org/viewvc/mediawiki/trunk/extensions/PAMELA/PAMELA.settings.php?view=markup PAMELA
 settings file]. You should NOT modify the settings file, but can have a look at it to get an idea of how to use the 
 settings, in case the below descriptions do not suffice.
